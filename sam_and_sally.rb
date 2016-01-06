@@ -1,18 +1,33 @@
-puts "how many recipes can Sam cook?"
+puts "How many recipes can Sam cook?"
 recipes = gets.chomp.to_i
 
-puts "can Sam make crepes?"
+puts "Can Sam make crepes? Yes or no?"
 crepes = gets.chomp
 
-puts "how many languages can Sally speak?"
+if crepes == "yes"
+  cooks_crepes = true
+else
+  cooks_crepes = false
+end
+
+puts "How many languages can Sally speak?"
 langs = gets.chomp.to_i
 
-if recipes > 10 and langs > 5
-        if crepes == "yes"
-        puts puts "should marry."
-        else 
-        puts "should date."
-        end
+puts "Can Sally speak French? Yes or no?"
+french = gets.chomp
 
-else puts "Sam and Sally are not a good match."
+if french == "yes"
+  speaks_french = true
+else
+  speaks_french = false
+end
+
+if recipes > 10 and langs > 5
+         puts "Sam and Sally should date."
+        if cooks_crepes || speaks_french == true
+          puts "Sam and Sally should marry"
+end
+
+puts "Sam and Sally are not a good match."
+
 end
