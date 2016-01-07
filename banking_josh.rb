@@ -15,15 +15,15 @@ accounts = []
   
   email = ""  
 
-until email.include?("@") && email[-4..-1]
-  print "Enter account holder's email: "
-  email = gets.chomp
+  until email.include?("@") && email[-4..-1] == ".com"
+    print "Enter account holder's email: "
+    email = gets.chomp
+  end
   
-  acct_num = rand
-  acct_num = gets.chomp
+  acct_num = Array.new(10){rand(0..9)}.join("")
 
   puts ""
-  puts "------------------------------"
+  puts "-------------------------------"
   puts ""
 
   accounts << {first_name: first_name, 
@@ -32,11 +32,28 @@ until email.include?("@") && email[-4..-1]
                acct_num: acct_num
               }
 end
-  
-  p accounts
 
-acct_num = Array.new(10) {rand(0..9)}
+puts""
+puts "Thank you, here is your report."
+
+
+puts " Report ".center(50){" "}
+puts Array.new(50){"*"}.join
+puts ""
 
 accounts.each do |account|
   puts "FIRST NAME: #{ account [:first_name] }"
+  puts ""
+  puts "LAST NAME: #{ account [:last_name] }"
+  puts ""
+  puts "EMAIL: #{ account [:email] }"
+  puts "ACCOUNT #: #{ account [:acct_num] }"
+  puts ""
+  
+  puts ""
+  puts "-------------------------------"
+  puts ""
 end
+
+puts ""
+puts Array.new(50){"*"}.join
